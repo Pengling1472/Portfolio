@@ -1,0 +1,45 @@
+* {
+    font-family: "Montserrat", sans-serif;
+    background: #212121;
+    color: white;
+}
+h1 {
+    text-align: center;
+}
+h2 {
+    text-align: center; 
+}
+p {
+    text-align: center;
+}
+.grid {
+    max-width: 800px;
+    display: grid;
+    margin: 32px;
+    gap: 16px;
+    grid-template-columns: repeat( auto-fit, minmax( 256px, 1fr ) );
+}
+.redirect {
+    width: 256px;
+    justify-self: center;
+    text-decoration: none;
+}
+img {
+    width: 256px;
+    border-radius: 16px;
+}
+video {
+    width: 100%;
+    border-radius: 16px;
+}
+.timestamp {
+    background: none;
+    border: none;
+    cursor: pointer;
+}
+svg {
+    height: 32px;
+}
+body {
+    margin: 8px 8px 128px 8px;
+}
