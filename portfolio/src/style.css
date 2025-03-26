@@ -24,7 +24,7 @@ p {
     justify-self: center;
     text-decoration: none;
 }
-img {
+.main_image {
     width: 256px;
     border-radius: 16px;
 }
