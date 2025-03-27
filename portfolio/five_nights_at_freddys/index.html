@@ -11,13 +11,13 @@
 </head>
     <body>
         <h1>Five Nights at Freddy's</h1>
-        <p><a href="/">Home</a><br/><a href="https://github.com/Pengling1472/fnaf-behavior-pack">Source Code</a></p>
+        <p><a href="/">Home</a><br/><a href="https://github.com/Pengling1472/fnaf-behavior-pack" target="_blank">Source Code</a></p>
         <div style="place-self: center; max-width: 640px;">
             <p style="text-align: justify;">
-                All characters, music, and sound effects in this project are owned by Scott Cawthon and Nintendo and the game's concept originates from Scott Cawthon. This project has been developed collaboratively by myself and my team. I programmed the majority of the game using JavaScript, and I've listed some of the features I've implemented below. 
+                All characters, musics, and sound effects in this project are owned by Scott Cawthon and Nintendo and the game's concept originates from Scott Cawthon. This project has been developed collaboratively by myself and my team. I programmed the majority of the game using JavaScript, and I've listed some of the features I've implemented below. 
             </p>
             <h2>Gameplay</h2>
-            <video onloadstart="this.volume=0.5" controls src="../src/assets/fnaf/fnaf_gameplay.mp4"></video>
+            <video id="video_0" onloadstart="this.volume=0.5" controls src="../src/assets/fnaf/fnaf_gameplay.mp4"></video>
             <ul>
                 <li>Collectible coins</li>
                 <li>Door functionality</li>
@@ -28,13 +28,19 @@
                 <li>Animatronics jumpscare</li>
                 <li>In-game events</li>
             </ul>
+            <div id="timestamp_0">
+                <h3>Timestamps</h3>
+            </div>
             <h2>Arcades & Bosses</h2>
-            <video onloadstart="this.volume=0.5" controls src="../src/assets/fnaf/fnaf_arcades.mp4"></video>
+            <video id="video_1" onloadstart="this.volume=0.5" controls src="../src/assets/fnaf/fnaf_arcades.mp4"></video>
             <ul>
                 <li>Items functionality for saving progress and teleporting to other players</li>
                 <li>JSON UI for player's health and death screen</li>
                 <li>Boss behavior and attack patterns</li>
             </ul>
+            <div id="timestamp_1">
+                <h3>Timestamps</h3>
+            </div>
             <h2>Blockbench Models</h2>
             <p style="text-align: justify;">
                 I used Blockbench to make all the models for the map, I also designed the textures, particles, and animations. All of the custom item textures were made using Asesprite. Here are some of the models shown below.
@@ -42,6 +48,6 @@
             <div id="images" style="text-align: center;"></div>
         </div>
 
-        <script src="../src/scripts/fnaf.js"></script>
+        <script type="module" src="../src/scripts/fnaf.js"></script>
     </body>
 </html>

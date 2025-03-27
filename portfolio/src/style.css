@@ -3,13 +3,7 @@
     background: #212121;
     color: white;
 }
-h1 {
-    text-align: center;
-}
-h2 {
-    text-align: center; 
-}
-p {
+h1, h2, h3, p {
     text-align: center;
 }
 .grid {
@@ -42,4 +36,14 @@ svg {
 }
 body {
     margin: 8px 8px 128px 8px;
+}
+iframe {
+    position: absolute;
+    transform: translateX( -50% );
+    border: none;
+    overflow: hidden;
+    width: 100%;
+    max-width: 800px;
+    height: calc( 100% + 24px );
+    padding-bottom: 128px;
 }
