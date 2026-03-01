@@ -19,8 +19,8 @@ export default function ForgetMeNot() {
                         <h1>Collaborators</h1>
                         <div className='project-grid'>
                             { getProfile( "penguin1472", "Penguin1472", "Lead Developer" ) }
-                            { getProfile( "pikapower97", "PikaPower97", "Systems Programmer" ) }
                             { getProfile( "nani-animatics", "Nani", "Art Director & Writer" ) }
+                            { getProfile( "pikapower97", "PikaPower97", "Systems Programmer" ) }
                             { getProfile( "lune", "Lune", "Concept Artist" ) }
                         </div>
                     </span>

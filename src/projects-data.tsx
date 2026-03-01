@@ -99,8 +99,8 @@ export const projects = new Map<string, { banner: React.ReactNode, name: string,
         tags: <div className="tags">
             <span className='mini-profile'>
                 { getMiniProfile( "penguin1472" ) }
-                { getMiniProfile( "pikapower97" ) }
                 { getMiniProfile( "nani-animatics" ) }
+                { getMiniProfile( "pikapower97" ) }
                 { getMiniProfile( "lune" ) }
             </span>
             <span>
