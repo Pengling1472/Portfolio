@@ -1,0 +1,17 @@
+[[redirects]]
+  from = "/sendMessage"
+  to = "/.netlify/functions/contact"
+  status = 200
+
+[[redirects]]
+  from = "/*"
+  to = "/index.html"
+  status = 200
+
+[functions]
+  node_bundler = "esbuild"
+  directory = "./functions"
+
+[build]
+  base = "./"
+  publish = "./src/dist"

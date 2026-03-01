@@ -1,0 +1,485 @@
+* {
+    font-family: "Montserrat", sans-serif;
+    background: #272829;
+    color: white;
+    margin: 0;
+}
+
+#root {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+body {
+    padding: 0 32px;
+}
+
+header {
+    max-width: 640px;
+    width: 100%;
+    padding: 32px 0;
+    display: flex;
+    gap: 16px;
+}
+
+header a {
+    color: #bbb;
+    text-decoration: none;
+    transition: all 0.3s;
+}
+
+header a:hover {
+    color: white;
+}
+
+article {
+    gap: 32px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.profile {
+    flex-direction: row-reverse;
+    display: flex;
+    gap: 12px;
+    max-width: 640px;
+    width: 100%;
+}
+
+.collaborator {
+    display: flex;
+    gap: 12px;
+    max-width: 640px;
+    width: 100%;
+}
+
+.profile img, .collaborator img {
+    width: 96px;
+    height: 96px;
+    border-radius: 8px;
+}
+
+.profile p, .collaborator p {
+    margin: 12px 0 0 0;
+    font-weight: 300;
+}
+
+.information {
+    margin: 12px 0 0 0;
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+}
+
+.information div a {
+    padding: 8px;
+    border-radius: 8px;
+    background: #222;
+    color: #bbb;
+    transition: all 0.3s;
+    align-items: center;
+    display: flex;
+    gap: 8px;
+}
+
+.information > div a {
+    text-decoration: none;
+}
+
+.information div a svg {
+    background: none;
+    fill: #bbb;
+    width: 16px;
+    height: 16px;
+}
+
+.information div a:hover svg {
+    fill: #fff;
+}
+
+.information a svg {
+    fill: #bbb;
+    width: 32px;
+    transition: all 0.3s;
+}
+
+.information > a {
+    max-height: 32px;
+}
+
+.information > a svg:hover {
+    fill: white;
+    transform: scale( 1.15, 1.15 );
+}
+
+.information div a:hover {
+    background: #111;
+    color: #fff;
+}
+
+.projects > span, .gallery > span {
+    width: 100%;
+    display: flex;
+    margin: 0 0 12px 0;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.projects span a, .gallery a {
+    text-decoration: none;
+}
+
+.projects > span p, .gallery > span p {
+    transition: all 0.3s;
+    text-wrap-mode: nowrap;
+}
+
+.projects > span p:hover, .gallery > span p:hover {
+    color: white;
+}
+
+.project-grid {
+    grid-template-columns: 312px 312px;
+    width: 640px;
+    display: grid;
+    gap: 16px;
+}
+
+.image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.project-background {
+    border-radius: 8px;
+    border-width: 1px;
+    border-style: solid;
+    border-color: #61677A;
+
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    justify-content: space-between;
+}
+
+.projects div a > img {
+    width: 100%;
+    border-radius: 8px;
+    transform: scale( 0.95, 0.95 );
+    cursor: pointer;
+    transition: all 0.3s;
+    display: block;
+}
+
+.projects div a > img:hover {
+    transform: scale( 1, 1 );
+}
+
+.projects p, .gallery p {
+    font-size: 0.85rem;
+    color: #bbb;
+}
+
+.tags {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.tags span {
+    gap: 8px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.tags span a {
+    background: #222;
+    color: #bbb;
+    border-radius: 8px;
+    font-size: 0.85rem;
+    padding: 8px;
+    transition: all 0.3s;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    text-decoration: none;
+}
+
+.tags span a:hover {
+    background: #111;
+    color: white;
+}
+
+.tags span a:hover svg {
+    stroke: white;
+}
+
+.tags span a svg {
+    height: 16px;
+    background: none;
+    stroke: #bbb;
+}
+
+.tags span p > img {
+    margin: 0;
+    width: 16px;
+    height: 16px;
+    border-radius: 0;
+}
+
+.mini-profile img:nth-child( 1 ) { z-index: 5; }
+.mini-profile img:nth-child( 2 ) { z-index: 4; }
+.mini-profile img:nth-child( 3 ) { z-index: 3; }
+.mini-profile img:nth-child( 4 ) { z-index: 2; }
+.mini-profile img:nth-child( 5 ) { z-index: 1; }
+ 
+.mini-profile img {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    margin-right: -20px;
+}
+
+.tags span p svg {
+    width: 16px;
+    fill: white;
+}
+
+.tags p {
+    gap: 6px;
+    display: flex;
+    align-items: center;
+    padding: 6px;
+    border-radius: 8px;
+    background: #333;
+}
+
+footer {
+    padding: 16px 0;
+    display: flex;
+    max-width: 640px;
+    width: 100%;
+    font-size: 0.85rem;
+    font-weight: 300;
+    align-items: center;
+    justify-content: space-between;
+}
+
+
+
+.skills {
+    max-width: 640px;
+    width: 100%;
+    gap: 12px;
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery {
+    max-width: 640px;
+}
+
+.gallery-page {
+    max-width: 640px;
+    gap: 32px;
+    display: flex;
+    flex-direction: column;
+}
+
+.gallery-page h1 {
+    margin: 0 0 12px;
+}
+
+.gallery-grid {
+    gap: 12px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.gallery-grid img {
+    width: 100%;
+    cursor: pointer;
+    border-radius: 8px;
+    max-width: calc( ( 100% - 12px * ( 4 - 1 ) ) / 4 );
+    transition: all 0.3s;
+}
+
+.gallery-grid-2 {
+    gap: 12px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.gallery-grid-2 img {
+    width: 100%;
+    border-radius: 8px;
+    max-width: calc( ( 100% - 12px * ( 2 - 1 ) ) / 2 );
+}
+
+.expand-img {
+    max-width: 640px !important;
+}
+
+.tags img, .tags svg, .tags i {
+    background: none;
+}
+
+.project-page {
+    max-width: 640px;
+    gap: 16px;
+    flex-direction: column;
+    display: flex;
+}
+
+.project-page p, .skills p {
+    text-align: justify;
+    font-size: 0.85rem;
+    color: #bbb;
+}
+
+.project-page li {
+    font-size: 0.85rem;
+    color: #bbb;
+}
+
+.project-page ul {
+    padding: 0 0 0 16px;
+}
+
+.dropdown-text input[type="text"] {
+    border: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    outline: none;
+    border-color: #61677A;
+}
+
+.dropdown-text {
+    display: flex;
+    gap: 8px;
+}
+
+.dropdown-text > div {
+    position: relative;
+}
+
+.dropdown-text span {
+    flex-direction: column;
+    position: absolute;
+    z-index: 1;
+    width: calc( 100% - 2px );
+    border-style: solid;
+    border-width: 1px;
+    border-color: #61677A;
+    border-radius: 4px;
+    overflow: hidden;
+    transform: translateY( 4px );
+}
+
+.dropdown-text div label {
+    cursor: pointer;
+}
+
+.timestamp span {
+    color: #acb7da;
+    cursor: pointer;
+}
+
+video {
+    border-radius: 8px;
+    width: 100%;
+}
+
+.parkour-tag-video {
+    display: grid;
+    grid-template-columns: auto auto;
+    gap: 8px;
+}
+
+@media ( max-width: 672px ) {
+    .profile {
+        flex-direction: column;
+        align-items: center;
+    }
+    .profile h2 {
+        margin: 16px 0 0 0;
+    }
+    .project-grid {
+        grid-template-columns: 312px;
+        grid-template-columns: auto;
+        width: 100%;
+    }
+    .gallery-grid {
+        gap: 4px;
+    }
+    .gallery-grid img {
+        max-width: calc( ( 100% - 4px * ( 4 - 1 ) ) / 4 );
+    }
+}
+
+.center label, .center {
+	text-align: center;
+}
+
+.column {
+	width: 100%;
+	gap: 0.4rem;
+	display: flex;
+	flex-direction: column;
+}
+
+.row {
+	gap: 0.4rem;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.button input, .button label, .button textarea {
+	border-radius: 0.2rem;
+	padding: 0.4rem;
+	font-size: 1rem;
+	width: 100%;
+	border: none;
+	color: #bbb;
+	outline: none;
+	height: 1.5rem;
+	background: #222;
+	transition: all 0.5s;
+}
+
+.button textarea:hover {
+	background: #111;
+}
+
+.button input:focus, .button textarea:focus, .button label:focus, .button input:hover, .button label:hover {
+	background: #111;
+	color: #fff;
+}
+
+.button textarea {
+	height: 4.5rem;
+}
+
+.button input:hover::placeholder, .button textarea:hover::placeholder {
+	color: #ccc;
+}
+
+.button input:focus::placeholder, .button textarea:focus::placeholder {
+	color: #ccc;
+}
+
+.button input:not( :placeholder-shown ), .button textarea:not( :placeholder-shown ) {
+	background: #111;
+	color: #fff;
+}
+
+.button input[readonly], .button label {
+	cursor: pointer;
+}
