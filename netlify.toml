@@ -14,4 +14,4 @@
 
 [build]
   base = "./"
-  publish = "./src/dist"
+  publish = "./dist"
