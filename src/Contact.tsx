@@ -38,7 +38,7 @@ export default function Contact() {
             <article>
                 <section className="project-page">
                     {
-                        success ? <>                      
+                        !success ? <>                      
                             <span>
                                 <h1>Get in Touch</h1>
                                 <p>
