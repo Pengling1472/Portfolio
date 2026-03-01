@@ -1,6 +1,7 @@
 import { useState } from "react"
 
 export default function Contact() {
+    const [ success, setSuccess ] = useState( false )
     const [ alertMessage, setAlertMessage ] = useState( '' )
     const [ message, setMessage ] = useState( {
         name: '',
@@ -29,39 +30,47 @@ export default function Contact() {
 
         if ( !response.ok ) return setAlertMessage( ( await response.text() ) == '' ? 'There was an error connecting to the server!' : await response.text() )
 
-        window.location.href = `/success/contact`
+        setSuccess( true )
     }
 
     return (
         <>
             <article>
                 <section className="project-page">
-                    <span>
-                        <h1>Get in Touch</h1>
-                        <p>
-                            Whether you have a question about my shop, you’d like to collaborate on a project, or just want to say hi, feel free to reach out. I'm usually busy drawing or coding, but I'll get back to you as soon as I can.
-                        </p>
-                    </span>
-                    <div className='column button'>
-                        <div className='row'>
-                            <input type="text" placeholder="Name" name='name' onChange={ inputHandler }/>
-                        </div>
-                        <div className='row'>
-                            <input type="text" placeholder="Email" name='email' onChange={ inputHandler }/>
-                        </div>
-                        <div className='row'>
-                            <textarea placeholder="Message" onChange={ textAreaHandler }/>
-                        </div>
-                    </div>
                     {
-                        alertMessage && <p>
-                            { alertMessage }
-                        </p>
+                        success ? <>                      
+                            <span>
+                                <h1>Get in Touch</h1>
+                                <p>
+                                    Whether you have a question about my shop, you’d like to collaborate on a project, or just want to say hi, feel free to reach out. I'm usually busy drawing or coding, but I'll get back to you as soon as I can.
+                                </p>
+                            </span>
+                            <div className='column button'>
+                                <div className='row'>
+                                    <input type="text" placeholder="Name" name='name' onChange={ inputHandler }/>
+                                </div>
+                                <div className='row'>
+                                    <input type="text" placeholder="Email" name='email' onChange={ inputHandler }/>
+                                </div>
+                                <div className='row'>
+                                    <textarea placeholder="Message" onChange={ textAreaHandler }/>
+                                </div>
+                            </div>
+                            {
+                                alertMessage && <p>
+                                    { alertMessage }
+                                </p>
+                            }
+                            <div className='row button center'>
+                                <label style={ { visibility: 'hidden' } }></label>
+                                <label onClick={ submit }>Send</label>
+                            </div> 
+                        </> :
+                        <>
+                            <h1>Message Sent!</h1>
+                            <p>Thanks for the message. I'll take a look as soon as I'm taking a break from working on my project. Talk soon!</p>
+                        </>
                     }
-                    <div className='row button center'>
-                        <label style={ { visibility: 'hidden' } }></label>
-                        <label onClick={ submit }>Send</label>
-                    </div>
                 </section>
             </article>
         </>
