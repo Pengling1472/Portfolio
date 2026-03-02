@@ -38,14 +38,14 @@ export default function ParkourTag() {
             <article>
                 <section className="project-page">
                     <span>
-                        <h1>Collaborators</h1>
+                        <h2>Collaborators</h2>
                         <div className='project-grid'>
                             { getProfile( "pikapower97", "PikaPower97", "Lead Developer" ) }
                             { getProfile( "penguin1472", "Penguin1472", "Systems Programmer" ) }
                         </div>
                     </span>
                     <span>
-                        <h1 style={ { margin: 0 } }>Parkour Tag</h1>
+                        <h2>Parkour Tag</h2>
                         <p>
                             The idea of the game is not ours and it's from MCC's Parkour Tag. This project was developed by a two-person team, and below it is shown both of our perspectives on playing the game.
                         </p>
@@ -69,7 +69,7 @@ export default function ParkourTag() {
                         ></video>
                     </div>
                     <span>
-                        <h1>Original Map</h1>
+                        <h2>Original Map</h2>
                         <p>
                             We originally made this map, but we noticed that the build size is too large for a parkour tag. I used command blocks to run the game and made a compass that the hunter obtained, which directs them to the nearest runner. I also made a spectator mode that focuses on the hunter if the runner is eliminated.
                         </p>
@@ -114,7 +114,7 @@ export default function ParkourTag() {
                         ></video>
                     </div>
                     <span>
-                        <h1>Replicated Map</h1>
+                        <h2>Replicated Map</h2>
                         <p>
                             The map itself was sourced from the Internet and is not our original creation. After learning Minecraft Scripting API, I programmed the game with Javascript and used Minecraft Server UI Module to have UI for team selection and game settings, coded the countdown and timer for the game.
                         </p>

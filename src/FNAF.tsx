@@ -25,8 +25,8 @@ export default function FNAF() {
             <article>
                 <section className="project-page">
                     <span>
-                        <h1>Collaborators</h1>
-                        <div className='project-grid'>
+                        <h2>Collaborators</h2>
+                        <div className='collaborator-grid'>
                             { getProfile( "penguin1472", "Penguin1472", "Lead Developer" ) }
                             { getProfile( "pikapower97", "PikaPower97", "Systems Programmer" ) }
                             { getProfile( "nani-animatics", "Nani", "Environment Artist" ) }
@@ -34,7 +34,7 @@ export default function FNAF() {
                         </div>
                     </span>
                     <span>
-                        <h1>Five Nights at Freddy's</h1>
+                        <h2>Five Nights at Freddy's</h2>
                         <p>
                             All characters, musics, and sound effects in this project are owned by Scott Cawthon and Nintendo and the game's concept originates from Scott Cawthon. This project has been developed collaboratively by myself and my team. I programmed the majority of the game using JavaScript, and I've listed some of the features I've implemented below. 
                         </p>
@@ -70,7 +70,7 @@ export default function FNAF() {
                         poster={ thumbnailGameplay }
                     ></video>
                     <span>
-                        <h1>Timestamps</h1>
+                        <h2>Timestamps</h2>
                         {
                             timestamps[ 0 ].map( ( item, index ) => {
                                 const [ time, string ] = item;
@@ -94,7 +94,7 @@ export default function FNAF() {
                         }
                     </span>
                     <span>
-                        <h1>Arcades & Bosses</h1>
+                        <h2>Arcades & Bosses</h2>
                         <ul>
                             <li>Items functionality for saving progress and teleporting to other players</li>
                             <li>JSON UI for player's health and death screen</li>
@@ -110,7 +110,7 @@ export default function FNAF() {
                         poster={ thumbnailGameplay }
                     ></video>
                     <span>
-                        <h1>Timestamps</h1>
+                        <h2>Timestamps</h2>
                         {
                             timestamps[ 1 ].map( ( item, index ) => {
                                 const [ time, string ] = item;
@@ -134,7 +134,7 @@ export default function FNAF() {
                         }
                     </span>
                     <span>
-                        <h1>Blockbench Models</h1>
+                        <h2>Blockbench Models</h2>
                         <p>
                             I used Blockbench to make all the models for the map, I also designed the textures, particles, and animations. All of the custom item textures were made using Asesprite. Here are some of the models shown below.
                         </p>

@@ -51,7 +51,7 @@ export default function Projects() {
             } */}
             <section className="projects">
                 <span>
-                    <h1>Projects</h1>
+                    <h2>Projects</h2>
                     {/* <div className="dropdown-text">
                         <label>Filter</label>
                         <div>

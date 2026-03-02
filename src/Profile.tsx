@@ -10,7 +10,7 @@ export const getProfile = ( id: string, name: string, role: string ) => {
     return ( <div className="collaborator">
         <img src={ profilePath }/>
         <div>
-            <h2>{ name }</h2>
+            <h4>{ name }</h4>
             <p>{ role }</p>
         </div>
     </div> )

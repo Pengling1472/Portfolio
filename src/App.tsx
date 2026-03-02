@@ -1,74 +1,49 @@
 import profile from './assets/profiles/penguin1472.webp'
 
 import { getIcons, projects } from './projects-data'
-import { useState, useEffect } from 'react'
-
-const drawingGlobs = import.meta.glob( "./assets/gallery/*.webp", {
-	query: '?url',
-	import: 'default',
-	eager: true
-} )
+import { getImage } from './Gallery'
+// import { useState } from 'react'
 
 export default function App() {
-	const [ drawings, setDrawings ] = useState<Map<string, string>>( new Map() )
-	const [ focused, setFocused ] = useState<boolean>( false )
-	const [ animated, setAnimated ] = useState<boolean>( false )
+	// const [ focused, setFocused ] = useState<boolean>( false )
+	// const [ animated, setAnimated ] = useState<boolean>( false )
 
-	let effectInit = false
+	// const focusImage = ( event: React.MouseEvent ) => {
+	// 	if ( animated ) return
 
-	const focusImage = ( event: React.MouseEvent ) => {
-		if ( animated ) return
+	// 	const element = event.target as HTMLElement
 
-		const element = event.target as HTMLElement
+	// 	switch ( focused ) {
+	// 		case true:
+	// 			for ( const img of document.querySelectorAll( ".gallery-grid img" ) ) {
+	// 				if ( img.id == element.id ) {
+	// 					img.classList.remove( "expand-img" )
+	// 					continue
+	// 				}
 
-		switch ( focused ) {
-			case true:
-				for ( const img of document.querySelectorAll( ".gallery-grid img" ) ) {
-					if ( img.id == element.id ) {
-						img.classList.remove( "expand-img" )
-						continue
-					}
+	// 				setAnimated( true )
+	// 				setTimeout( () => {
+	// 					img.removeAttribute( "hidden" )
+	// 				}, 300 )
+	// 			}
 
-					setAnimated( true )
-					setTimeout( () => {
-						img.removeAttribute( "hidden" )
-					}, 300 )
-				}
+	// 			setTimeout( () => {
+	// 				setAnimated( false )
+	// 			}, 300 )
+	// 			break
+	// 		case false:
+	// 			for ( const img of document.querySelectorAll( ".gallery-grid img" ) ) {
+	// 				if ( img.id == element.id ) {
+	// 					img.classList.add( "expand-img" )
+	// 					continue
+	// 				}
+	// 				img.setAttribute( "hidden", "" )
+	// 			}
+	// 			break
+	// 	}
 
-				setTimeout( () => {
-					setAnimated( false )
-				}, 300 )
-				break
-			case false:
-				for ( const img of document.querySelectorAll( ".gallery-grid img" ) ) {
-					if ( img.id == element.id ) {
-						img.classList.add( "expand-img" )
-						continue
-					}
-					img.setAttribute( "hidden", "" )
-				}
-				break
-		}
-
-		setFocused( !focused )
-	}
-
-	useEffect( () => {
-		if ( effectInit ) return
-		effectInit = true;
-
-		( async () => {
-			for ( const [ path, url ] of Object.entries( drawingGlobs ) ) {
-				const drawingName = path.split( "/" ).pop()?.split( "." )[ 0 ] ?? "";
-
-				setDrawings( drawings => {
-					drawings.set( drawingName, url as string )
-
-					return new Map( drawings )
-				} )
-			}
-		} )()
-	}, [] )
+	// 	setFocused( !focused )
+	// }
 
 	return (
 	<>
@@ -77,9 +52,9 @@ export default function App() {
 				<img src={ profile }/>
 				<div>
 					<h2>Marthin Villar</h2>
-					<p>Full-Stack Developer & Artist</p>
+					<p>Developer & Artist</p>
 					<p>
-						I’m a developer and artist who enjoys creating projects. Right now, I’m the main developer for an indie RPG game, and I’ve worked with friends on making some Minecraft Maps and add-ons.
+						I enjoy creating projects, as of right now, I’m the main developer for an indie RPG game, and I’ve worked with friends on making some Minecraft maps and add-ons.
 						<br/><br/>
 						I built my own sticker website from scratch, everything from the frontend with my own mascots to the backend using Google Cloud and Stripe for payments. When I’m not coding, I’m usually drawing manga-style illustrations, semi-chibis, or pixel art for my games.
 					</p>
@@ -116,7 +91,7 @@ export default function App() {
 				</div>
 			</section>
 			<section className="skills">
-				<h1>Technical Skills</h1>
+				<h2>Technical Skills</h2>
 				<div className="tags">
 					<span>
 						{ getIcons( [ 'javascript', 'Javascript' ], [ 'typescript', 'Typescript' ], [ 'html', 'Html' ], [ 'css', 'CSS' ], [ 'cs', 'C#' ], [ 'react', 'React' ] ) }
@@ -125,22 +100,18 @@ export default function App() {
 			</section>
 			<section className="gallery">
 				<span>
-					<h1>Design & Art</h1>
+					<h2>Creative Work</h2>
 					<a href="/gallery">
 						<p>view more →</p>
 					</a>
 				</span>
 				<div className="gallery-grid">
-					{ [ ...drawings.entries() ].filter( ( [ key ] ) => [ "eren", "pingu-2", "king_boo", "hazel-&-mochi" ].includes( key ) ).map( ( [ key, value ] ) => {
-						return (
-							<img id={ key } src={ value } onClick={ focusImage }/>
-						)
-					} ) }
+					{ getImage( "jumping-spider", "hazel-&-mochi", "eren", "bonnie" ) }
 				</div>
 			</section>
 			<section className="projects">
 				<span>
-					<h1>Featured Projects</h1>
+					<h2>Featured Projects</h2>
 					<a href="/projects">
 						<p>view more →</p>
 					</a>

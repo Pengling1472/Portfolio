@@ -16,7 +16,7 @@ export default function ForgetMeNot() {
             <article>
                 <section className="project-page">
                     <span>
-                        <h1>Collaborators</h1>
+                        <h2>Collaborators</h2>
                         <div className='project-grid'>
                             { getProfile( "penguin1472", "Penguin1472", "Lead Developer" ) }
                             { getProfile( "nani-animatics", "Nani", "Art Director & Writer" ) }
@@ -26,7 +26,7 @@ export default function ForgetMeNot() {
                     </span>
                     <img className="image" src={ mainMenu }/>
                     <span>
-                        <h1>Forget Me Not</h1>
+                        <h2>Forget Me Not</h2>
                         <p>
                             This project is an RPG adventure game that has some horror aspects and a pixel art style. It is being developed using the Godot game engine and is programmed in C#, and all of the pixel art is being made in Aseprite.
                             <br/><br/>
@@ -38,8 +38,8 @@ export default function ForgetMeNot() {
                         </p>
                     </span>
                     <span>
-                        <h1>Nani's Concept Art</h1>
-                        <div className="gallery-grid-2">
+                        <h2>Nani's Concept Art</h2>
+                        <div className="gallery-grid-6">
                             <img src={ springGreatTree }/>
                             <img src={ springForest }/>
                             <img src={ springTown }/>

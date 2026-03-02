@@ -40,9 +40,9 @@ export default function Contact() {
                     {
                         !success ? <>                      
                             <span>
-                                <h1>Get in Touch</h1>
+                                <h1>Get in Touch!</h1>
                                 <p>
-                                    Whether you have a question about my shop, you’d like to collaborate on a project, or just want to say hi, feel free to reach out. I'm usually busy drawing or coding, but I'll get back to you as soon as I can.
+                                    Whether you have a question about my shop, you’d like to collaborate on a project, or just want to say hi, feel free to reach out. I'm usually busy drawing or coding, but I'll get back to you as soon as I can!
                                 </p>
                             </span>
                             <div className='column button'>

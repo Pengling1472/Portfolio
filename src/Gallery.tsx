@@ -1,75 +1,65 @@
-import { useState, useEffect } from 'react'
-
-const drawingGlobs = import.meta.glob( "./assets/gallery/*.webp", {
+const drawingGlobs: Record<string, string> = import.meta.glob( "./assets/gallery/*.webp", {
     query: '?url',
     import: 'default',
     eager: true
 } )
 
+export const getImage = ( ...args: string[] ) => {
+    return args.map( id => { 
+        const iconPath: string = drawingGlobs[ `./assets/gallery/${id}.webp` ]
+
+        return ( <div>
+            <img src={ iconPath }/>
+        </div> )
+    } )
+}
+
 export default function Gallery() {
-    const [ drawings, setDrawings ] = useState<Map<string, string>>( new Map() )
-
-    let effectInit = false
-
-    useEffect( () => {
-        if ( effectInit ) return
-        effectInit = true;
-
-		( async () => {
-			for ( const [ path, url ] of Object.entries( drawingGlobs ) ) {
-				const drawingName = path.split( "/" ).pop()?.split( "." )[ 0 ] ?? "";
-
-				setDrawings( drawings => {
-					drawings.set( drawingName, url as string )
-
-					return new Map( drawings )
-				} )
-			}
-		} )()
-    }, [] )
-
     return (
         <>
             <article>
                 <section className="gallery-page">
                     <span>
-                        <h1>Digital</h1>
-                        <div className="gallery-grid-2">
-                            { [ ...drawings.entries() ].filter( ( [ key ] ) => [ "sticker-default", "sticker-halloween", "sticker-christmas", "carrot", "diana", "pingu", "pingu-2", "pingu-3", "hazel-&-mochi" ].includes( key ) ).map( item => {
-                                return (
-                                    <img src={ item[ 1 ] }/>
-                                )
-                            } ) }
+                        <h2>Pictures</h2>
+                        <div className="gallery-grid-2 gallery-grid-5">
+                            { getImage(
+                                "clouds",
+                                "bee",
+                                "baby-lamb",
+                                "thomas",
+                                "butterfly",
+                                "cat",
+                                "flowers",
+                                "jumping-spider",
+                                "rose",
+                                "spider",
+                                "sunset",
+                                "sunset-2",
+                                "vehicle" ) }
                         </div>
                     </span>
                     <span>
-                        <h1>Traditional</h1>
-                        <div className="gallery-grid-2">
-                            { [ ...drawings.entries() ].filter( ( [ key ] ) => [ "eren", "ken", "komi", "mikasa", "ryuk", "zero" ].includes( key ) ).map( item => {
-                                return (
-                                    <img src={ item[ 1 ] }/>
-                                )
-                            } ) }
+                        <h2>Digital</h2>
+                        <div className="gallery-grid-2 gallery-grid-3">
+                            { getImage( "sticker-default", "hazel-&-mochi", "diana", "sticker-halloween", "sticker-christmas", "pingu", "pingu-2", "pingu-3", "carrot" ) }
                         </div>
                     </span>
                     <span>
-                        <h1>Blockbench</h1>
-                        <div className="gallery-grid-2">
-                            { [ ...drawings.entries() ].filter( ( [ key ] ) => [ "freddy", "bonnie", "chica", "foxy", "king_boo", "cupcake" ].includes( key ) ).map( item => {
-                                return (
-                                    <img src={ item[ 1 ] }/>
-                                )
-                            } ) }
+                        <h2>Traditional</h2>
+                        <div className="gallery-grid-2 gallery-grid-4">
+                            { getImage( "eren", "ken", "komi", "mikasa", "ryuk", "zero" ) }
                         </div>
                     </span>
                     <span>
-                        <h1>Blender</h1>
-                        <div className="gallery-grid-2">
-                            { [ ...drawings.entries() ].filter( ( [ key ] ) => [ "penguin_fishing", "skull" ].includes( key ) ).map( item => {
-                                return (
-                                    <img src={ item[ 1 ] }/>
-                                )
-                            } ) }
+                        <h2>Blockbench</h2>
+                        <div className="gallery-grid-2 gallery-grid-4">
+                            { getImage( "freddy", "bonnie", "chica", "foxy", "king_boo", "cupcake" ) }
+                        </div>
+                    </span>
+                    <span>
+                        <h2>Blender</h2>
+                        <div className="gallery-grid-2 gallery-grid-4">
+                            { getImage( "penguin_fishing", "skull" ) }
                         </div>
                     </span>
                 </section>

@@ -24,14 +24,14 @@ export default function ParkourWarrior() {
             <article>
                 <section className="project-page">
                     <span>
-                        <h1>Collaborators</h1>
+                        <h2>Collaborators</h2>
                         <div className='project-grid'>
                             { getProfile( "pikapower97", "PikaPower97", "Lead Developer" ) }
                             { getProfile( "penguin1472", "Penguin1472", "Systems Programmer" ) }
                         </div>
                     </span>
                     <span>
-                        <h1>Parkour Warrior</h1>
+                        <h2>Parkour Warrior</h2>
                         <p>
                             This project is inspired by MCC’s Parkour Warrior and was created purely for entertainment purposes. The project was done by a team of two. We used JavaScript as our programming language, I wrote scripts for  the checkpoints, which gave the players an item and their scores. I created an entity that displays the player scores and a leaderboard at the end of the game, along with some custom blocks for the map. I programmed the team functionality, timer, countdown, and used the Minecraft Server UI module to set up the UI for team selection and game settings.
                         </p>
@@ -55,7 +55,7 @@ export default function ParkourWarrior() {
                         poster={ thumbnail }
                     ></video>
                     <span>
-                        <h1>Timestamps</h1>
+                        <h2>Timestamps</h2>
                         {
                             timestamps.map( ( item, index ) => {
                                 const [ time, string ] = item;
