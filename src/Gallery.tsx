@@ -19,8 +19,8 @@ export default function Gallery() {
         <>
             <article>
                 <section className="gallery-page">
+                    <h1 className="center">Pictures</h1>
                     <span>
-                        <h2>Pictures</h2>
                         <div className="gallery-grid-2 gallery-grid-5">
                             { getImage(
                                 "clouds",
@@ -38,26 +38,26 @@ export default function Gallery() {
                                 "vehicle" ) }
                         </div>
                     </span>
+                    <h1 className="center">Digital Art</h1>
                     <span>
-                        <h2>Digital</h2>
                         <div className="gallery-grid-2 gallery-grid-3">
                             { getImage( "sticker-default", "hazel-&-mochi", "diana", "sticker-halloween", "sticker-christmas", "pingu", "pingu-2", "pingu-3", "carrot" ) }
                         </div>
                     </span>
+                    <h1 className="center">Traditional Art</h1>
                     <span>
-                        <h2>Traditional</h2>
                         <div className="gallery-grid-2 gallery-grid-4">
                             { getImage( "eren", "ken", "komi", "mikasa", "ryuk", "zero" ) }
                         </div>
                     </span>
+                    <h1 className="center">Blockbench Models</h1>
                     <span>
-                        <h2>Blockbench</h2>
                         <div className="gallery-grid-2 gallery-grid-4">
                             { getImage( "freddy", "bonnie", "chica", "foxy", "king_boo", "cupcake" ) }
                         </div>
                     </span>
+                    <h1 className="center">Blender</h1>
                     <span>
-                        <h2>Blender</h2>
                         <div className="gallery-grid-2 gallery-grid-4">
                             { getImage( "penguin_fishing", "skull" ) }
                         </div>

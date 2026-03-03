@@ -44,8 +44,8 @@ export default function ParkourTag() {
                             { getProfile( "penguin1472", "Penguin1472", "Systems Programmer" ) }
                         </div>
                     </span>
+                    <h1 className='center'>Parkour Tag</h1>
                     <span>
-                        <h2>Parkour Tag</h2>
                         <p>
                             The idea of the game is not ours and it's from MCC's Parkour Tag. This project was developed by a two-person team, and below it is shown both of our perspectives on playing the game.
                         </p>
