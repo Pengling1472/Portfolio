@@ -96,7 +96,10 @@ export default function ParkourWarrior() {
                                                 const element = ( event.target as HTMLElement ).parentNode as HTMLElement
 
                                                 video.currentTime = timestamps[ parseInt( element.id ) ][ 0 ]
-                                                processFrame()
+
+                                                setTimeout( () => {
+                                                    processFrame()
+                                                }, 300 );
                                             } }>
                                                 { Math.floor( time / 60 ).toString().padStart( 2, "0" ) }:{ Math.floor( time % 60 ).toString().padStart( 2, "0" ) }    
                                             </span> - { string }

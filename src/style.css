@@ -489,7 +489,7 @@ video {
     }
 }
 
-.center label, .center {
+.center {
 	text-align: center;
 }
 
@@ -549,4 +549,6 @@ video {
 
 .button input[readonly], .button label {
 	cursor: pointer;
+    display: flex;
+    justify-content: center;
 }

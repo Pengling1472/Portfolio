@@ -50,8 +50,8 @@ export default function Projects() {
                 </section>
             } */}
             <section className="projects">
+                <h1 className='center'>Projects</h1>
                 <span>
-                    <h2>Projects</h2>
                     {/* <div className="dropdown-text">
                         <label>Filter</label>
                         <div>

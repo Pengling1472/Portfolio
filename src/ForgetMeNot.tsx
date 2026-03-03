@@ -34,7 +34,7 @@ export default function ForgetMeNot() {
                             <br/><br/>
                             The project is a collaborative effort, with a dedicated team contributing their expertise. Nani, the co-founder, is responsible for crafting the game’s narrative and producing high-quality artwork. Pikapower focuses on complex programming tasks that involve the game’s mechanics and level design, while Lune, who works under Nani’s direction, creates concept art for the game.
                             <br/><br/>
-                            Currently, the project is in early production, so not much content will be shown at this time.
+                            Currently, the project is in early development, so not much content will be shown at this time.
                         </p>
                     </span>
                     <h2 className="center">Nani's Concept Art</h2>

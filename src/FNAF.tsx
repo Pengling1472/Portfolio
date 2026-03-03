@@ -61,12 +61,6 @@ const processFrame = ( id: number ) => {
     } )
 }
 
-const handlePlay = ( id: number ) => {
-    requestAnimationFrame( () => {
-        processFrame( id )
-    } )
-}
-
 export default function FNAF() {
     return (
         <>
@@ -86,12 +80,12 @@ export default function FNAF() {
                         <p>
                             Scott Cawthon and Nintendo own all characters, music, and sound effects in this project, and the game's concept originates from Scott Cawthon. This project has been developed collaboratively by my team and me. My goal is to create a game that allows everyone to have fun and play together with friends in this blocky game, and to experience Five Nights at Freddy's in a free-roam style.
                             <br/><br/> 
-                            This is a terror game in which the players take on the role of a security guard tasked with preventing animatronics from entering the office. Players use the camera and lights to track the movements of the animatronics and can close doors to keep them away. The objective is to survive until 6 AM to win. Playing with friends can take on the role of animatronics, to go on and try to jumpscare the security guard. The game has arcade machines with fun mini-games ( parkour & maze ), and at the very end of the game, you enter into a boss battle. Winning these games can earn you some tokens, which can be used to buy accessories or decorations.    
+                            This is a terror game in which the players take on the role of a security guard tasked with preventing animatronics from entering the office. Players use the camera and lights to track the movements of the animatronics and can close doors to keep them away. The objective is to survive until 6 AM to win. Playing with friends can take on the role of animatronics, and they can try to jumpscare the security guard. The game has arcade machines with fun mini-games ( parkour & maze ), and at the very end of the game, you enter into a boss battle. Winning these games can earn you some tokens, which can be used to buy accessories or decorations.    
                         </p>
                         <br/>
                         <ul>
                             <li><strong>Custom 3D Assets:</strong> Used Blockbench to design, texture, and animate all of the animatronics, furniture, and interactable props.</li>
-                            <li><strong>Gameplay Logic:</strong> Scripted the Power, Door, and Camera system. Programmed JSON UI for UI elements. Items logic for controlling animatronic and adds camera functionality.</li>
+                            <li><strong>Gameplay Logic:</strong> Scripted the Power, Door, and Camera system. Programmed JSON UI for displaying camera UI & death screen. Added logic to items for controlling animatronic and camera.</li>
                             <li><strong>Entity Behavior:</strong> Coded the animatronic to have different states. Idle for performing on stage, walking for when roaming at night, jumpscare that gets triggered when they enter the office, and other idle states for staring at the camera.</li>
                             <li><strong>In-Game Events:</strong> Implemented a collectible coin system and some rare events, one that spawns in a special animatronic in the office.</li>
                             <li><strong>Mini-Games & Bosses:</strong> Built functional arcade machines and a final boss battle to reward players with tokens, which can be used to buy decor or accessories.</li>
@@ -120,7 +114,7 @@ export default function FNAF() {
                         preload='metadata'
                         poster={ thumbnailGameplay }
                         onPlay={ () => {
-                            handlePlay( 0 )
+                            processFrame( 0 )
                         } }
                     ></video>
                     <span id='video-0-timestamp'>
@@ -137,7 +131,10 @@ export default function FNAF() {
 
                                                 video.currentTime = timestamps[ 0 ][ parseInt( element.id ) ][ 0 ]
                                                 video.play()
-                                                handlePlay( 0 )
+
+                                                setTimeout( () => {
+                                                    processFrame( 0 )
+                                                }, 300 );
                                             } }>
                                                 { Math.floor( time / 60 ).toString().padStart( 2, "0" ) }:{ Math.floor( time % 60 ).toString().padStart( 2, "0" ) }    
                                             </span> - { string }
@@ -156,7 +153,7 @@ export default function FNAF() {
                         preload='metadata'
                         poster={ thumbnailGameplay }
                         onPlay={ () => {
-                            handlePlay( 1 )
+                            processFrame( 1 )
                         } }
                     ></video>
                     <span id='video-1-timestamp'>
@@ -173,7 +170,10 @@ export default function FNAF() {
 
                                                 video.currentTime = timestamps[ 1 ][ parseInt( element.id ) ][ 0 ]
                                                 video.play()
-                                                handlePlay( 1 )
+
+                                                setTimeout( () => {
+                                                    processFrame( 1 )
+                                                }, 300 );
                                             } }>
                                                 { Math.floor( time / 60 ).toString().padStart( 2, "0" ) }:{ Math.floor( time % 60 ).toString().padStart( 2, "0" ) }    
                                             </span> - { string }
