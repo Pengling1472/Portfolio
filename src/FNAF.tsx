@@ -7,17 +7,65 @@ import freddy from './assets/fnaf/freddy.mp4'
 import { getProfile } from './Profile'
 
 const timestamps: [ number, string ][][] = [ [
-    [ 0, "Exploring" ],
+    [ 0, "Entrance with custom door" ],
+    [ 17.716501, "Animatronics idle state and collectible coins" ],
+    [ 23.895812, "The game's info and settings" ],
+    [ 41.797785, "Shop for buying decorations & accessories" ],
     [ 58.216667, "Game starts" ],
+    [ 61.696241, "Camera JSON UI & custom item" ],
+    [ 65.954845, "Doors & lights mechanic with some interactable props" ],
     [ 87.85, "Jumpscare ( AUDIO WARNING )" ],
-    [ 105.733333, "Playing as animatronic" ]
+    [ 105.733333, "Playing the role of an animatronic (Movement programmed by PikaPower)" ]
 ], [
     [ 0, "Arcade game #1 Parkour" ],
+    [ 9.36351, "1st floor parkour made by Echo" ],
+    [ 33.083675, "2nd floor parkour made by Nani" ],
+    [ 52.421619, "3rd floor parkour made by Nani" ],
     [ 81.866667, "King Boo boss" ],
-    [ 360.216667, "Arcade game #2 Maze" ],
+    [ 360.216667, "Arcade game #2 Maze (Obstacles & traps made by Echo)" ],
+    [ 466.932428, "Trick or treat mechanic (Town made by Nani)" ],
     [ 547.866667, "Cupcake boss" ],
-    [ 747.05, "Buying a mask" ]
+    [ 747.05, "Buying item from the shop" ]
 ] ]
+
+const videosCurrent: number[] = [
+    -1,
+    -1
+]
+
+const processFrame = ( id: number ) => {
+    const video = document.getElementById( `video-${id}` ) as HTMLVideoElement
+    const timestamp = document.getElementById( `video-${id}-timestamp` ) as HTMLSpanElement
+    const list = timestamps[ id ].map( ( [ time ] ) => time )
+
+    for ( let i = list.length - 1; i >= 0; i-- ) {
+        if ( list[ i ] <= video.currentTime ) {
+            if ( videosCurrent[ id ] != i ) {
+                for ( const node of timestamp.children ) {
+                    node.classList.remove( "timestamp-background" )
+                }
+                timestamp.children[ i ].classList.add( "timestamp-background" )
+                videosCurrent[ id ] = i
+            } 
+            break
+        }
+    }
+
+    if ( video.paused || video.seeking ) {
+        videosCurrent[ id ] = -1
+        return
+    }
+
+    requestAnimationFrame( () => {
+        processFrame( id )
+    } )
+}
+
+const handlePlay = ( id: number ) => {
+    requestAnimationFrame( () => {
+        processFrame( id )
+    } )
+}
 
 export default function FNAF() {
     return (
@@ -33,24 +81,26 @@ export default function FNAF() {
                             { getProfile( "echo", "Echo", "Level Designer" ) }
                         </div>
                     </span>
+                    <h1 className='center'>Five Nights at Freddy's</h1>
                     <span>
-                        <h2>Five Nights at Freddy's</h2>
                         <p>
-                            All characters, musics, and sound effects in this project are owned by Scott Cawthon and Nintendo and the game's concept originates from Scott Cawthon. This project has been developed collaboratively by myself and my team. I programmed the majority of the game using JavaScript, and I've listed some of the features I've implemented below. 
+                            Scott Cawthon and Nintendo own all characters, music, and sound effects in this project, and the game's concept originates from Scott Cawthon. This project has been developed collaboratively by my team and me. My goal is to create a game that allows everyone to have fun and play together with friends in this blocky game, and to experience Five Nights at Freddy's in a free-roam style.
+                            <br/><br/> 
+                            This is a terror game in which the players take on the role of a security guard tasked with preventing animatronics from entering the office. Players use the camera and lights to track the movements of the animatronics and can close doors to keep them away. The objective is to survive until 6 AM to win. Playing with friends can take on the role of animatronics, to go on and try to jumpscare the security guard. The game has arcade machines with fun mini-games ( parkour & maze ), and at the very end of the game, you enter into a boss battle. Winning these games can earn you some tokens, which can be used to buy accessories or decorations.    
                         </p>
-                    </span>
-                    <span>
+                        <br/>
                         <ul>
-                            <li>Collectible coins</li>
-                            <li>Door functionality</li>
-                            <li>Time and power mechanics</li>
-                            <li>Minecraft Server UI for game settings and shops</li>
-                            <li>Minecraft Experimental Camera for the game's camera</li>
-                            <li>JSON UI for the game's camera and displaying player coins</li>
-                            <li>Animatronics jumpscare</li>
-                            <li>In-game events</li>
+                            <li><strong>Custom 3D Assets:</strong> Used Blockbench to design, texture, and animate all of the animatronics, furniture, and interactable props.</li>
+                            <li><strong>Gameplay Logic:</strong> Scripted the Power, Door, and Camera system. Programmed JSON UI for UI elements. Items logic for controlling animatronic and adds camera functionality.</li>
+                            <li><strong>Entity Behavior:</strong> Coded the animatronic to have different states. Idle for performing on stage, walking for when roaming at night, jumpscare that gets triggered when they enter the office, and other idle states for staring at the camera.</li>
+                            <li><strong>In-Game Events:</strong> Implemented a collectible coin system and some rare events, one that spawns in a special animatronic in the office.</li>
+                            <li><strong>Mini-Games & Bosses:</strong> Built functional arcade machines and a final boss battle to reward players with tokens, which can be used to buy decor or accessories.</li>
                         </ul>
                     </span>
+                    <div className='parkour-tag-video'>
+                        <video src={ music_man } loop autoPlay></video>
+                        <video src={ freddy } loop autoPlay></video>
+                    </div>
                     <div className="tags">
                         <span>
                             <a href="https://github.com/Pengling1472/FNAF-Behavior-Pack/blob/main/scripts/index.js" target="_blank">
@@ -61,6 +111,7 @@ export default function FNAF() {
                             </a>
                         </span>
                     </div>
+                    <h2 className='center'>Gameplay</h2>
                     <video
                         id="video-0"
                         src={ gameplay }
@@ -68,9 +119,11 @@ export default function FNAF() {
                         controlsList='nodownload'
                         preload='metadata'
                         poster={ thumbnailGameplay }
+                        onPlay={ () => {
+                            handlePlay( 0 )
+                        } }
                     ></video>
-                    <span>
-                        <h2>Timestamps</h2>
+                    <span id='video-0-timestamp'>
                         {
                             timestamps[ 0 ].map( ( item, index ) => {
                                 const [ time, string ] = item;
@@ -84,6 +137,7 @@ export default function FNAF() {
 
                                                 video.currentTime = timestamps[ 0 ][ parseInt( element.id ) ][ 0 ]
                                                 video.play()
+                                                handlePlay( 0 )
                                             } }>
                                                 { Math.floor( time / 60 ).toString().padStart( 2, "0" ) }:{ Math.floor( time % 60 ).toString().padStart( 2, "0" ) }    
                                             </span> - { string }
@@ -93,14 +147,7 @@ export default function FNAF() {
                             } )
                         }
                     </span>
-                    <span>
-                        <h2>Arcades & Bosses</h2>
-                        <ul>
-                            <li>Items functionality for saving progress and teleporting to other players</li>
-                            <li>JSON UI for player's health and death screen</li>
-                            <li>Boss behavior and attack patterns</li>
-                        </ul>
-                    </span>
+                    <h2 className='center'>Arcades & Bosses</h2>
                     <video
                         id="video-1"
                         src={ arcades }
@@ -108,9 +155,11 @@ export default function FNAF() {
                         controlsList='nodownload'
                         preload='metadata'
                         poster={ thumbnailGameplay }
+                        onPlay={ () => {
+                            handlePlay( 1 )
+                        } }
                     ></video>
-                    <span>
-                        <h2>Timestamps</h2>
+                    <span id='video-1-timestamp'>
                         {
                             timestamps[ 1 ].map( ( item, index ) => {
                                 const [ time, string ] = item;
@@ -124,6 +173,7 @@ export default function FNAF() {
 
                                                 video.currentTime = timestamps[ 1 ][ parseInt( element.id ) ][ 0 ]
                                                 video.play()
+                                                handlePlay( 1 )
                                             } }>
                                                 { Math.floor( time / 60 ).toString().padStart( 2, "0" ) }:{ Math.floor( time % 60 ).toString().padStart( 2, "0" ) }    
                                             </span> - { string }
@@ -133,16 +183,6 @@ export default function FNAF() {
                             } )
                         }
                     </span>
-                    <span>
-                        <h2>Blockbench Models</h2>
-                        <p>
-                            I used Blockbench to make all the models for the map, I also designed the textures, particles, and animations. All of the custom item textures were made using Asesprite. Here are some of the models shown below.
-                        </p>
-                    </span>
-                    <div className='parkour-tag-video'>
-                        <video src={ music_man } loop autoPlay></video>
-                        <video src={ freddy } loop autoPlay></video>
-                    </div>
                 </section>
             </article>
         </>

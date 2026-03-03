@@ -451,6 +451,14 @@ footer {
     cursor: pointer;
 }
 
+.timestamp {
+    transition: all 0.3s;
+}
+
+.timestamp-background {
+    color: #fff !important;
+}
+
 video {
     border-radius: 8px;
     width: 100%;

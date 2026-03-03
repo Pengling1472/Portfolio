@@ -18,6 +18,34 @@ const timestamps : [ number, string ][] = [
     [ 615.708333, "Results" ]
 ]
 
+let videoCurrent = -1
+
+const processFrame = () => {
+    const video = document.getElementById( `video` ) as HTMLVideoElement
+    const timestamp = document.getElementById( `video-timestamp` ) as HTMLSpanElement
+    const list = timestamps.map( ( [ time ] ) => time )
+
+    for ( let i = list.length - 1; i >= 0; i-- ) {
+        if ( list[ i ] <= video.currentTime ) {
+            if ( videoCurrent != i ) {
+                for ( const node of timestamp.children ) {
+                    node.classList.remove( "timestamp-background" )
+                }
+                timestamp.children[ i ].classList.add( "timestamp-background" )
+                videoCurrent = i
+            } 
+            break
+        }
+    }
+
+    if ( video.paused || video.seeking ) {
+        videoCurrent = -1
+        return
+    }
+
+    requestAnimationFrame( processFrame )
+}
+
 export default function ParkourWarrior() {
     return (
         <>
@@ -53,9 +81,9 @@ export default function ParkourWarrior() {
                         controlsList='nodownload'
                         preload='metadata'
                         poster={ thumbnail }
+                        onPlay={ processFrame }
                     ></video>
-                    <span>
-                        <h2>Timestamps</h2>
+                    <span id='video-timestamp'>
                         {
                             timestamps.map( ( item, index ) => {
                                 const [ time, string ] = item;
@@ -68,6 +96,7 @@ export default function ParkourWarrior() {
                                                 const element = ( event.target as HTMLElement ).parentNode as HTMLElement
 
                                                 video.currentTime = timestamps[ parseInt( element.id ) ][ 0 ]
+                                                processFrame()
                                             } }>
                                                 { Math.floor( time / 60 ).toString().padStart( 2, "0" ) }:{ Math.floor( time % 60 ).toString().padStart( 2, "0" ) }    
                                             </span> - { string }
