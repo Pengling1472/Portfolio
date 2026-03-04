@@ -357,9 +357,24 @@ footer {
     .gallery-grid-5 div:nth-child( 1 ) {
         grid-area: span 1 / span 2;
     }
-    .gallery-grid-5 div:nth-child( 4 ) {
+    .gallery-grid-5 div:nth-child( 7 ) {
         grid-area: span 1 / span 2;
     }
+    .gallery-grid-5 div:nth-child( 8 ) {
+        grid-area: span 2 / span 2;
+    }
+    .gallery-grid-5 div:nth-child( 12 ) {
+        grid-area: span 1 / span 2;
+    }
+    .gallery-grid-5 div:nth-child( 13 ) {
+        grid-area: span 1 / span 2;
+    }
+    .gallery-grid-5 div:nth-child( 14 ) {
+        grid-area: span 2 / span 1;
+    }
+    /* .gallery-grid-5 div:nth-child( 13 ) {
+        grid-area: span 2 / span 2;
+    } */
 }
 
 .gallery-grid-6 {

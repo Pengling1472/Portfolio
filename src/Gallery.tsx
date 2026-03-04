@@ -24,18 +24,22 @@ export default function Gallery() {
                         <div className="gallery-grid-2 gallery-grid-5">
                             { getImage(
                                 "clouds",
-                                "bee",
-                                "baby-lamb",
-                                "thomas",
-                                "butterfly",
-                                "cat",
                                 "flowers",
-                                "jumping-spider",
-                                "rose",
-                                "spider",
                                 "sunset",
                                 "sunset-2",
-                                "vehicle" ) }
+                                "rose",
+                                "baby-lamb",
+                                "thomas",
+                                "jumping-spider",
+                                "butterfly",
+                                "bee",
+                                "cat",
+                                "spider",
+                                "jumping-spider-2",
+                                "train",
+                                "butterfly-2",
+                                "gato",
+                            ) }
                         </div>
                     </span>
                     <h1 className="center">Digital Art</h1>
