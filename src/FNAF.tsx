@@ -85,7 +85,7 @@ export default function FNAF() {
                         <br/>
                         <ul>
                             <li><strong>Custom 3D Assets:</strong> Used Blockbench to design, texture, and animate all of the animatronics, furniture, and interactable props.</li>
-                            <li><strong>Gameplay Logic:</strong> Scripted the Power, Door, and Camera system. Programmed JSON UI for displaying camera UI & death screen. Added logic to items for controlling animatronic and camera.</li>
+                            <li><strong>Gameplay Logic:</strong> Scripted the power, door, and camera system. Programmed JSON UI for displaying camera UI & death screen. Added logic to items for controlling animatronic and camera.</li>
                             <li><strong>Entity Behavior:</strong> Coded the animatronic to have different states. Idle for performing on stage, walking for when roaming at night, jumpscare that gets triggered when they enter the office, and other idle states for staring at the camera.</li>
                             <li><strong>In-Game Events:</strong> Implemented a collectible coin system and some rare events, one that spawns in a special animatronic in the office.</li>
                             <li><strong>Mini-Games & Bosses:</strong> Built functional arcade machines and a final boss battle to reward players with tokens, which can be used to buy decor or accessories.</li>

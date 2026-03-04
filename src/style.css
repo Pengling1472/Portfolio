@@ -441,6 +441,7 @@ footer {
 .timestamp span {
     color: #acb7da;
     cursor: pointer;
+    user-select: none;
 }
 
 .timestamp {
