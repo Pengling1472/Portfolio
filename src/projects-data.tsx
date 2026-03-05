@@ -6,6 +6,7 @@ import forget_me_not from './assets/main/forget-me-not.webp'
 import discord_activity from './assets/main/discord_activity.webp'
 import sticker_website from './assets/main/sticker_website.webp'
 
+import { Link } from 'react-router-dom'
 import { getMiniProfile } from './Profile'
 
 const iconGlobs: Record<string, string> = import.meta.glob( "./assets/icons/*.svg", {
@@ -27,9 +28,9 @@ export const getIcons = ( ...args: [ string, string ][] ) => {
 
 export const projects = new Map<string, { banner: React.ReactNode, name: string, description: string, tags: React.ReactNode }>( [
         [ "forget-me-not", {
-        banner: <a href="/forget-me-not">
+        banner: <Link to="/forget-me-not">
             <img src={ forget_me_not }/>
-        </a>,
+        </Link>,
         name: "Forget Me Not",
         description: "An RPG game in which the main character finds themselves in an unknown world with islands that have different seasons, and they venture off to find a way back home.",
         tags: <div className="tags">
@@ -49,14 +50,14 @@ export const projects = new Map<string, { banner: React.ReactNode, name: string,
                 { getIcons( [ 'cs', 'C#' ], [ 'godot', 'Godot' ] ) }
             </span>
             <span>
-                <a href="/forget-me-not">
+                <Link to="/forget-me-not">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 16 16" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" style={ { transform: "scale( 1.1, 1.1 )" } }>
                         <path d="M1.25 7.5a6.25 6.25 0 1 0 12.5 0 6.25 6.25 0 1 0 -12.5 0" stroke-width="1.5px"></path>
                         <path d="m7.5 10 0 -2.5" stroke-width="1.5px"></path>
                         <path d="m7.5 5 0.00625 0" stroke-width="1.5px"></path>
                     </svg>
                     Info
-                </a>
+                </Link>
                 <a href="https://github.com/Pengling1472/Forget-Me-Not" target="_blank">
                     <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
                         <path transform="matrix(79.6704,0,0,79.6704,-95.2248,-231.248)" d="M10,15.21C10,15.42 6.02,15.42 6.02,15.21C6.02,15.02 6.01,14.39 6.01,13.72C4,14.09 3.48,13.23 3.32,12.78C3.23,12.55 2.84,11.84 2.5,11.65C2.22,11.5 1.82,11.13 2.49,11.12C3.12,11.11 3.57,11.7 3.72,11.94C4.44,13.15 5.59,12.81 6.05,12.6C6.12,12.08 6.33,11.73 6.56,11.53C4.78,11.33 2.92,10.64 2.92,7.58C2.92,6.71 3.23,5.99 3.74,5.43C3.66,5.23 3.38,4.41 3.82,3.31C3.82,3.31 4.49,3.1 6.02,4.13C6.66,3.95 7.34,3.86 8.02,3.86C8.7,3.86 9.38,3.95 10.02,4.13C11.55,3.09 12.22,3.31 12.22,3.31C12.66,4.41 12.38,5.23 12.3,5.43C12.81,5.99 13.12,6.7 13.12,7.58C13.12,10.65 11.25,11.33 9.47,11.53C9.76,11.78 10.01,12.26 10.01,13.01C10.01,14.08 10,14.94 10,15.21Z" fill="none" strokeWidth="1.3px"/>
@@ -67,9 +68,9 @@ export const projects = new Map<string, { banner: React.ReactNode, name: string,
         </div>
     } ],
         [ "five-nights-at-freddys", {
-        banner: <a href="/five-nights-at-freddys">
+        banner: <Link to="/five-nights-at-freddys">
             <img src={ fnaf }/>
-        </a>,
+        </Link>,
         name: "Five Nights at Freddy's",
         description: "A recreated game built in Minecraft, where you can roam around the pizzeria and play as a security guard or animatronic. You can play arcade games which you can fight bosses.",
         tags: <div className="tags">
@@ -89,14 +90,14 @@ export const projects = new Map<string, { banner: React.ReactNode, name: string,
                 </p>
             </span>
             <span>
-                <a href="/five-nights-at-freddys">
+                <Link to="/five-nights-at-freddys">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 16 16" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" style={ { transform: "scale( 1.1, 1.1 )" } }>
                         <path d="M1.25 7.5a6.25 6.25 0 1 0 12.5 0 6.25 6.25 0 1 0 -12.5 0" stroke-width="1.5px"></path>
                         <path d="m7.5 10 0 -2.5" stroke-width="1.5px"></path>
                         <path d="m7.5 5 0.00625 0" stroke-width="1.5px"></path>
                     </svg>
                     Info
-                </a>
+                </Link>
                 <a href="https://github.com/Pengling1472/FNAF-Behavior-Pack/blob/main/scripts/index.js" target="_blank">
                     <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
                         <path transform="matrix(79.6704,0,0,79.6704,-95.2248,-231.248)" d="M10,15.21C10,15.42 6.02,15.42 6.02,15.21C6.02,15.02 6.01,14.39 6.01,13.72C4,14.09 3.48,13.23 3.32,12.78C3.23,12.55 2.84,11.84 2.5,11.65C2.22,11.5 1.82,11.13 2.49,11.12C3.12,11.11 3.57,11.7 3.72,11.94C4.44,13.15 5.59,12.81 6.05,12.6C6.12,12.08 6.33,11.73 6.56,11.53C4.78,11.33 2.92,10.64 2.92,7.58C2.92,6.71 3.23,5.99 3.74,5.43C3.66,5.23 3.38,4.41 3.82,3.31C3.82,3.31 4.49,3.1 6.02,4.13C6.66,3.95 7.34,3.86 8.02,3.86C8.7,3.86 9.38,3.95 10.02,4.13C11.55,3.09 12.22,3.31 12.22,3.31C12.66,4.41 12.38,5.23 12.3,5.43C12.81,5.99 13.12,6.7 13.12,7.58C13.12,10.65 11.25,11.33 9.47,11.53C9.76,11.78 10.01,12.26 10.01,13.01C10.01,14.08 10,14.94 10,15.21Z" fill="none" strokeWidth="1.3px"/>
@@ -107,9 +108,9 @@ export const projects = new Map<string, { banner: React.ReactNode, name: string,
         </div>
     } ],
     [ "parkour-warrior", {
-        banner: <a href="/parkour-warrior">
+        banner: <Link to="/parkour-warrior">
             <img src={ parkour_warrior }/>
-        </a>,
+        </Link>,
         name: "Parkour Warrior",
         description: "A fast paced, 10-minute parkour race for up to 10 teams. At the start of every match, a course is generated from a massive library. Teams are ranked based on how many coins they earn.",
         tags: <div className="tags">
@@ -121,14 +122,14 @@ export const projects = new Map<string, { banner: React.ReactNode, name: string,
                 { getIcons( [ 'javascript', 'Javascript' ] ) }
             </span>
             <span>
-                <a href="/parkour-warrior">
+                <Link to="/parkour-warrior">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 16 16" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" style={ { transform: "scale( 1.1, 1.1 )" } }>
                         <path d="M1.25 7.5a6.25 6.25 0 1 0 12.5 0 6.25 6.25 0 1 0 -12.5 0" stroke-width="1.5px"></path>
                         <path d="m7.5 10 0 -2.5" stroke-width="1.5px"></path>
                         <path d="m7.5 5 0.00625 0" stroke-width="1.5px"></path>
                     </svg>
                     Info
-                </a>
+                </Link>
                 <a href="https://github.com/PikaPower97/PW/blob/main/scripts/index.js" target="_blank">
                     <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
                         <path transform="matrix(79.6704,0,0,79.6704,-95.2248,-231.248)" d="M10,15.21C10,15.42 6.02,15.42 6.02,15.21C6.02,15.02 6.01,14.39 6.01,13.72C4,14.09 3.48,13.23 3.32,12.78C3.23,12.55 2.84,11.84 2.5,11.65C2.22,11.5 1.82,11.13 2.49,11.12C3.12,11.11 3.57,11.7 3.72,11.94C4.44,13.15 5.59,12.81 6.05,12.6C6.12,12.08 6.33,11.73 6.56,11.53C4.78,11.33 2.92,10.64 2.92,7.58C2.92,6.71 3.23,5.99 3.74,5.43C3.66,5.23 3.38,4.41 3.82,3.31C3.82,3.31 4.49,3.1 6.02,4.13C6.66,3.95 7.34,3.86 8.02,3.86C8.7,3.86 9.38,3.95 10.02,4.13C11.55,3.09 12.22,3.31 12.22,3.31C12.66,4.41 12.38,5.23 12.3,5.43C12.81,5.99 13.12,6.7 13.12,7.58C13.12,10.65 11.25,11.33 9.47,11.53C9.76,11.78 10.01,12.26 10.01,13.01C10.01,14.08 10,14.94 10,15.21Z" fill="none" strokeWidth="1.3px"/>
@@ -139,9 +140,9 @@ export const projects = new Map<string, { banner: React.ReactNode, name: string,
         </div>
     } ],
     [ "parkour-tag", {
-        banner: <a href="/parkour-tag">
+        banner: <Link to="/parkour-tag">
             <img src={ parkour_tag }/>
-        </a>,
+        </Link>,
         name: "Parkour Tag",
         description: "A Minecraft game involving two teams, where the hunter must tag all of the runners.",
         tags: <div className="tags">
@@ -153,14 +154,14 @@ export const projects = new Map<string, { banner: React.ReactNode, name: string,
                 { getIcons( [ 'javascript', 'Javascript' ] ) }
             </span>
             <span>
-                <a href="/parkour-tag">
+                <Link to="/parkour-tag">
                     <svg xmlns="http://www.w3.org/2000/svg" viewBox="-0.5 -0.5 16 16" fill="none" stroke="white" stroke-linecap="round" stroke-linejoin="round" style={ { transform: "scale( 1.1, 1.1 )" } }>
                         <path d="M1.25 7.5a6.25 6.25 0 1 0 12.5 0 6.25 6.25 0 1 0 -12.5 0" stroke-width="1.5px"></path>
                         <path d="m7.5 10 0 -2.5" stroke-width="1.5px"></path>
                         <path d="m7.5 5 0.00625 0" stroke-width="1.5px"></path>
                     </svg>
                     Info
-                </a>
+                </Link>
                 <a href="https://github.com/PikaPower97/PT/blob/main/scripts/index.js" target="_blank">
                     <svg viewBox="0 0 1024 1024" xmlns="http://www.w3.org/2000/svg">
                         <path transform="matrix(79.6704,0,0,79.6704,-95.2248,-231.248)" d="M10,15.21C10,15.42 6.02,15.42 6.02,15.21C6.02,15.02 6.01,14.39 6.01,13.72C4,14.09 3.48,13.23 3.32,12.78C3.23,12.55 2.84,11.84 2.5,11.65C2.22,11.5 1.82,11.13 2.49,11.12C3.12,11.11 3.57,11.7 3.72,11.94C4.44,13.15 5.59,12.81 6.05,12.6C6.12,12.08 6.33,11.73 6.56,11.53C4.78,11.33 2.92,10.64 2.92,7.58C2.92,6.71 3.23,5.99 3.74,5.43C3.66,5.23 3.38,4.41 3.82,3.31C3.82,3.31 4.49,3.1 6.02,4.13C6.66,3.95 7.34,3.86 8.02,3.86C8.7,3.86 9.38,3.95 10.02,4.13C11.55,3.09 12.22,3.31 12.22,3.31C12.66,4.41 12.38,5.23 12.3,5.43C12.81,5.99 13.12,6.7 13.12,7.58C13.12,10.65 11.25,11.33 9.47,11.53C9.76,11.78 10.01,12.26 10.01,13.01C10.01,14.08 10,14.94 10,15.21Z" fill="none" strokeWidth="1.3px"/>
