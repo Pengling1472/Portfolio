@@ -1,10 +1,103 @@
 import gameplay from './assets/fnaf/fnaf_gameplay.mp4'
 import thumbnailGameplay from './assets/fnaf/fnaf_gameplay.webp'
 import arcades from './assets/fnaf/fnaf_arcades.mp4'
-import music_man from './assets/fnaf/music_man.mp4'
-import freddy from './assets/fnaf/freddy.mp4'
+import * as THREE from "three" 
+
+const modelAnimations = {
+    "freddy": [
+        "idle_1",
+        "idle_2",
+        "walk",
+        "stare_1",
+        "stare_2",
+        "stare_3",
+        "stare_4",
+        "dance",
+        "jumpscare"
+    ],
+    "bonnie": [
+        "idle_1",
+        "idle_2",
+        "walk",
+        "walk_2",
+        "stare_1",
+        "stare_2",
+        "jumpscare"
+    ],
+    "chica": [
+        "idle_1",
+        "idle_2",
+        "walk",
+        "stare_1",
+        "stare_2",
+        "stare_3",
+        "jumpscare"
+    ],
+    "foxy": [
+        "idle_1",
+        "idle_2",
+        "run",
+        "stare_1",
+        "stare_2",
+        "jumpscare"
+    ],
+    "dj_music_man": [
+        "move"
+    ],
+    "king_boo": [
+        "move",
+        "attack",
+        "angry",
+        "roll"
+    ]
+}
+
+const data = [
+    { id: "freddy", path: "/freddy2.glb" },
+    { id: "bonnie", path: "/bonnie2.glb" },
+    { id: "chica", path: "/chica.glb" },
+    { id: "foxy", path: "/foxy.glb" },
+    { id: "dj_music_man", path: "/dj_music_man.glb" },
+    { id: "king_boo", path: "/king_boo.glb" }
+]
+
+function FNAFModel( { id, path, animation }: { id: string, path: string, animation: number } ) {
+    const meshRef = useRef( null! )
+
+    const { scene } = useGLTF( path )
+    const { animations } = useGLTF( path )
+    const { actions } = useAnimations( animations, meshRef )
+
+    scene.traverse( child => {
+        if ( child.type == "Mesh" ) {
+            child.castShadow = true
+        }
+    } )
+
+    useEffect( () => {
+        const action = actions[ `animation.${id}.${modelAnimations[ id as keyof typeof modelAnimations ][ animation ]}` ]
+
+        if ( action ) {
+            action.reset().play()
+        }
+    }, [ actions ] )
+
+    return ( <mesh
+        ref={ meshRef }
+        scale={ id == "king_boo" ? 3 : 1 }
+        position={ [ 0, 0, 0.5 ] }
+    >
+        <primitive
+            object={ scene }
+        />
+    </mesh> )
+}
 
 import { getProfile } from './Profile'
+import { Canvas } from '@react-three/fiber'
+import { Environment, OrbitControls, useAnimations, useGLTF } from '@react-three/drei'
+import { useEffect, useRef, useState } from 'react'
+import { Bloom, EffectComposer } from '@react-three/postprocessing'
 
 const timestamps: [ number, string ][][] = [ [
     [ 0, "Entrance with custom door" ],
@@ -61,7 +154,24 @@ const processFrame = ( id: number ) => {
     } )
 }
 
+data.forEach( item => useGLTF.preload( item.path ) )
+
 export default function FNAF() {
+    const { scene } = useGLTF( "/background.glb" )
+    
+    const [ currentModel, setCurrentModel ] = useState( {
+        key: 0,
+        id: "freddy",
+        path: "/freddy.glb",
+        animation: 0
+    } )
+
+    scene.traverse( child => {
+        const mesh = child as THREE.Mesh
+
+        mesh.receiveShadow = true
+    } )
+
     return (
         <>
             <article>
@@ -91,9 +201,76 @@ export default function FNAF() {
                             <li><strong>Mini-Games & Bosses:</strong> Built functional arcade machines and a final boss battle to reward players with tokens, which can be used to buy decor or accessories.</li>
                         </ul>
                     </span>
-                    <div className='parkour-tag-video'>
-                        <video src={ music_man } loop autoPlay></video>
-                        <video src={ freddy } loop autoPlay></video>
+                    <div className='tags'>
+                        <span>
+                            {
+                                data.map( ( item, index ) => (
+                                    <a style={ { cursor: "pointer" } } onClick={ () => {
+                                        setCurrentModel( {
+                                            key: index,
+                                            id: data[ index ].id,
+                                            path: data[ index ].path,
+                                            animation: 0
+                                        } )
+                                    } }>
+                                        { item.id }
+                                    </a>
+                                ) )
+                            }
+                        </span>
+                    </div>
+                    <div className='tags'>
+                        <span>
+                            {
+                                modelAnimations[ currentModel.id as keyof typeof modelAnimations ]
+                                    .map( ( animation, index ) => ( <a style={ { cursor: "pointer" } } onClick={ () => {
+                                        setCurrentModel( { ...currentModel, animation: index, key: currentModel.key + 1 } )
+                                    } }>
+                                        { animation }
+                                    </a> ) )
+                            }
+                        </span>
+                    </div>
+                    <div className='three-canvas'>
+                        <Canvas shadows="soft" camera={ { position: [ 2, 4, -3 ] } }>
+                            <ambientLight intensity={ 0.2 } color="#6791d1"/>
+                            <fog attach="fog" args={ [ '#161018', 0, 10 ] }/>
+                            <spotLight
+                                position={ [ 0, 6, -3 ] }
+                                angle={ Math.PI / 180 * 65 }
+                                intensity={ 20 }
+                                penumbra={ 1 }
+                                castShadow
+                            />
+                            <Environment
+                                preset='sunset'
+                                environmentIntensity={ 0.0075 }
+                            />
+                            <EffectComposer>
+                                <Bloom
+                                    intensity={ 0.25 }
+                                />
+                            </EffectComposer>
+                            <OrbitControls
+                                enableZoom={ false }
+                                target={ [ 0, 3, 0 ] }
+                                minAzimuthAngle={ Math.PI / 1.3 }
+                                maxAzimuthAngle={ -Math.PI / 1.3 }
+                                minPolarAngle={ Math.PI / 2.9 }
+                                maxPolarAngle={ Math.PI / 1.4 }
+                            />
+                            <FNAFModel
+                                key={ currentModel.key }
+                                id={ currentModel.id }
+                                path={ currentModel.path }
+                                animation={ currentModel.animation }
+                            />
+                            <mesh>
+                                <primitive
+                                    object={ scene }
+                                />
+                            </mesh>
+                        </Canvas>
                     </div>
                     <div className="tags">
                         <span>
