@@ -60,14 +60,14 @@ export default function App() {
 						I built my own sticker website from scratch, everything from the frontend with my own mascots to the backend using Google Cloud and Stripe for payments. When I’m not coding, I’m usually drawing manga-style illustrations, semi-chibis, or pixel art for my games.
 					</p>
 					<div className="information">
-						<div>
+						{/* <div>
 							<a href="https://drive.google.com/uc?export=download&id=1a02T8mfnkftN-xXJwIh6pi10QD71Jq0s">
 								<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
 									<path d="M224 0L0 0 0 512l384 0 0-352-160 0L224 0zm32 0l0 128 128 0L256 0zM216 232l0 102.1 31-31 17-17L297.9 320l-17 17-72 72-17 17-17-17-72-72-17-17L120 286.1l17 17 31 31L168 232l0-24 48 0 0 24z"/>
 								</svg>
 								Resume
 							</a>
-						</div>
+						</div> */}
 						<Link to="/contact">
 							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
 								<path transform="matrix(0.627933,0,0,0.627933,95.2491,95.2491)" d="M48,64C21.5,64 0,85.5 0,112C0,127.1 7.1,141.3 19.2,150.4L236.8,313.6C248.2,322.1 263.8,322.1 275.2,313.6L492.8,150.4C504.9,141.3 512,127.1 512,112C512,85.5 490.5,64 464,64L48,64ZM0,176L0,384C0,419.3 28.7,448 64,448L448,448C483.3,448 512,419.3 512,384L512,176L294.4,339.2C271.6,356.3 240.4,356.3 217.6,339.2L0,176Z"/>
