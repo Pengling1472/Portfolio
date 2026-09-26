@@ -52,7 +52,7 @@ export default function App() {
 			<section className="profile">
 				<img src={ profile }/>
 				<div>
-					<h1>Marthin Villar</h1>
+					<h1>Pengling1472</h1>
 					<p>Developer & Artist</p>
 					<p>
 						I enjoy creating projects, as of right now, I’m the main developer for an indie RPG game, and I’ve worked with friends on making some Minecraft maps and add-ons.
